@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Interfaces\IMascotaService.cs~RFa49e2bc0.TMP" />
+    <None Remove="Models\DTO\MascotaDTO.cs~RFa5035b60.TMP" />
+    <None Remove="Models\DTO\PedidoDTO.cs~RFa4ebefb6.TMP" />
+    <None Remove="Models\DTO\PedidoDTO.cs~RFa52d8fb2.TMP" />
+    <None Remove="Models\DTO\UsuarioDTO.cs~RFa50d5f19.TMP" />
+    <None Remove="Models\DTO\UsuarioDTO.cs~RFa50eaa27.TMP" />
+    <None Remove="Models\Mascota.cs~RFa503ddde.TMP" />
+    <None Remove="Models\Pedido.cs~RFa4a3ef75.TMP" />
+    <None Remove="Models\Pedido.cs~RFa4a51c5d.TMP" />
+    <None Remove="Models\Vendedor.cs~RFa4a29e5c.TMP" />
+    <None Remove="Services\DuenioService.cs~RFa4b6ffb5.TMP" />
+    <None Remove="Services\DuenioService.cs~RFa4bdae28.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+</Project>
