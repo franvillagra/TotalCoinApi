@@ -10,25 +10,27 @@ namespace TotalCoinApi.Services
         {
             Usuarios = new List<Usuario>()
             {
-                new Usuario(1, "vendedor1","Martin Rodriguez","123",true),
-                 new Usuario(2, "vendedor2","Jimena Gonzalez","234",true),
-                  new Usuario(3, "cliente1","Francisco Villagra","aaa",false),
-                   new Usuario(4, "cliente2","Joaquin Dominguez","bbb",false),
+                new Usuario(4, "vendedor1","Martin Rodriguez","123",true),
+                 new Usuario(3, "vendedor2","Jimena Gonzalez","234",true),
+                  new Usuario(1, "cliente1","Francisco Villagra","aaa",false),
+                   new Usuario(2, "cliente2","Joaquin Dominguez","bbb",false),
              };
 
         }
 
 
-        public Task<bool> Login(UsuarioDTO usuario)
+        public Task<Usuario> Login(UsuarioDTO usuario)
         {
-            return Task.FromResult(Usuarios.Exists(user => user.User == usuario.User && user.Pass == usuario.Pass));
+            return Task.FromResult(Usuarios.Where(user => user.User == usuario.User && user.Pass == usuario.Pass).FirstOrDefault());
         }
 
-        public Task<int> Registrar(UsuarioDTO usuario)
+        public Task<bool> Registrar(UsuarioDTO usuario)
         {
             var index = Usuarios.Max(p => p.Id);
+            if (Usuarios.Exists(x => x.User == usuario.User))
+                return Task.FromResult(false); ;
             Usuarios.Add(new Usuario(index++, usuario.User,usuario.Nombre,usuario.Pass, false));
-            return Task.FromResult(index++);
+            return Task.FromResult(true);
         }
     }
 }

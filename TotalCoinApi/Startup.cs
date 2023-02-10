@@ -17,6 +17,7 @@ namespace TotalCoinApi
         {
             services.AddRazorPages();
             services.AddSwaggerGen();
+            services.AddCors();
             services.AddEndpointsApiExplorer();
             services.AddControllers();
             services.AddScoped<IMascotaService, MascotaService>();
@@ -37,6 +38,12 @@ namespace TotalCoinApi
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             app.UseHttpsRedirection();
+            app.UseCors(x => x
+                   .AllowAnyMethod()
+                   .AllowAnyHeader()
+                   .SetIsOriginAllowed(origin => true) // allow any origin
+                                                       //.WithOrigins("https://localhost:44351")); // Allow only this origin can also have multiple origins separated with comma
+                   .AllowCredentials()); // allow credentials
             app.UseStaticFiles();
             app.UseSwagger();
             app.UseSwaggerUI();

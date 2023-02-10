@@ -10,8 +10,8 @@ namespace TotalCoinApi.Services
         {
             Vendedores = new List<Vendedor>()
             {
-                new Vendedor(1, "Juan Carlos"),
-                 new Vendedor(2, "Jose Gomez")
+                new Vendedor(1, "Martin Rodriguez"),
+                 new Vendedor(2, "Jimena Gonzalez")
              };
 
         }

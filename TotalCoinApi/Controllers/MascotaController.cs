@@ -10,9 +10,11 @@ namespace TotalCoinApi.Controllers
     public class MascotaController : ControllerBase
     {
         private readonly IMascotaService _mascotaService;
-        public MascotaController(IMascotaService service)
+        private readonly IDuenioService _duenioService;
+        public MascotaController(IMascotaService service, IDuenioService duenioService)
         {
             _mascotaService = service;
+            _duenioService = duenioService; 
         }
 
 
@@ -21,6 +23,13 @@ namespace TotalCoinApi.Controllers
         public async Task<IActionResult> GetMascotas()
         {
             var mascotas = await _mascotaService.GetMascotasAsync();
+            mascotas = await _duenioService.SetearDuenios(mascotas);
+            return Ok(mascotas);
+        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetMascotasDuenio([FromRoute]int id)
+        {
+            var mascotas = await _mascotaService.GetMascotasDuenio(id);
 
             return Ok(mascotas);
         }

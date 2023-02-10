@@ -23,6 +23,15 @@ namespace TotalCoinApi.Controllers
 
             return Ok(pedidos);
         }
+
+        [HttpPost("{id}")]
+        public async Task<IActionResult> DespacharPedido([FromRoute] int id)
+        {
+            var pedidos = await _pedidoService.DespacharPedido(id);
+
+            return Ok(pedidos);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CrearPedido(PedidoDTO pedido)
         {

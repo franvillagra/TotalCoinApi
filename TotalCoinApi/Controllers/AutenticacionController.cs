@@ -20,7 +20,7 @@ namespace TotalCoinApi.Controllers
         public async Task<IActionResult> Login(UsuarioDTO usuario)
         {
             var response = await _autenticacionService.Login(usuario);
-
+          
             return Ok(response);
         }
 

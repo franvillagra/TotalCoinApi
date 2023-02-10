@@ -7,6 +7,7 @@
         public double Peso { get; set; }
         public int Edad { get; set; }
         public bool Castrado { get; set; }
+        public int Duenio { get; set; }
 
     }
 }

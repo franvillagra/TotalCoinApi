@@ -10,8 +10,8 @@ namespace TotalCoinApi.Services
         {
             Duenios = new List<Duenio>()
             {
-                new Duenio(1, "Francisco"),
-                 new Duenio(2, "Pedro")
+                new Duenio(1, "Francisco Villagra"),
+                 new Duenio(2, "Joaquin Dominguez")
              };
 
         }
@@ -19,6 +19,15 @@ namespace TotalCoinApi.Services
         public async Task<List<Duenio>> GetDueniosAsync()
         {
             return this.Duenios.ToList();
+        }
+
+        public async Task<List<Mascota>> SetearDuenios(List<Mascota> mascotas)
+        {
+            foreach (var mascota in mascotas)
+            {
+                mascota.DuenioName = this.Duenios.Where(x => x.Id == mascota.DuenioId).First().Name;
+            }
+            return mascotas;
         }
     }
 }

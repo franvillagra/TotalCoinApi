@@ -6,5 +6,6 @@ namespace TotalCoinApi.Interfaces
     {
         Task<List<Pedido>> GetPedidosAsync();
         Task<int> CrearPedido(PedidoDTO pedido);
+        Task<bool> DespacharPedido(int pedido);
     }
 }
