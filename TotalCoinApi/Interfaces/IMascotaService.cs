@@ -4,9 +4,9 @@ namespace TotalCoinApi.Interfaces
 {
     public interface IMascotaService
     {
-        Task<List<Mascota>> GetMascotasDuenio(int id);
+        Task<List<Mascota>> GetMascotasDuenio(string id);
         Task<List<Mascota>> GetMascotasAsync();
-        Task<int> CrearMascota(MascotaDTO pedido);
+        Task<List<Mascota>> CrearMascota(MascotaDTO pedido);
 
     }
 }

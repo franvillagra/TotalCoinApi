@@ -4,14 +4,14 @@
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public bool EsPerro { get; set; }
-        public double Peso { get; set; }
-        public int Edad { get; set; }
-        public bool Castrado { get; set; }
-        public int DuenioId { get; set; }
-        public string DuenioName { get; set; }
+        public string EsPerro { get; set; }
+        public string Peso { get; set; }
+        public string Edad { get; set; }
+        public string Castrado { get; set; }
+        public string DuenioId { get; set; }
+        public string? DuenioName { get; set; }
 
-        public Mascota(int id, string name, bool esPerro,double peso, int edad, bool castrado, int duenioId)
+        public Mascota(int id, string name, string esPerro, string peso, string edad, string castrado, string duenioId)
         {
             Id = id;
             Name = name;

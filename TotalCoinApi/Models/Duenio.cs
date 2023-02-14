@@ -2,10 +2,10 @@
 {
     public class Duenio
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
 
-        public Duenio(int id, string name)
+        public Duenio(string id, string name)
         {
             Id = id;
             Name = name;

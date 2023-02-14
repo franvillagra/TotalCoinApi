@@ -4,7 +4,8 @@ namespace TotalCoinApi.Interfaces
 {
     public interface IAutenticacionService
     {
+        Task<List<Usuario>> GetUsuarios();
         Task<Usuario> Login(UsuarioDTO usuario);
-        Task<bool> Registrar(UsuarioDTO usuario);
+        Task<List<Usuario>> Registrar(UsuarioDTO usuario);
     }
 }

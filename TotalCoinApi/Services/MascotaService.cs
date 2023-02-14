@@ -10,8 +10,9 @@ namespace TotalCoinApi.Services
         {
             Mascotas = new List<Mascota>()
             {
-                new Mascota(1, "Maiko",true,5.7,3,false,1),
-                 new Mascota(2, "Laila",false,3.2,5,true,2)
+                new Mascota(1, "Maiko","false","5.7","3","false","1"),
+                 new Mascota(2, "Laila","false","3.2","5","false","2"),
+                   new Mascota(3, "Piter","false","3.2","5","false","1")
              };
 
         }
@@ -21,14 +22,14 @@ namespace TotalCoinApi.Services
             return this.Mascotas.ToList();
         }
 
-        public Task<int> CrearMascota(MascotaDTO mascota)
+        public Task<List<Mascota>> CrearMascota(MascotaDTO mascota)
         {
             var index = Mascotas.Max(p => p.Id);
             Mascotas.Add(new Mascota(index++, mascota.Name, mascota.EsPerro,mascota.Peso,mascota.Edad,mascota.Castrado,mascota.Duenio));
-            return Task.FromResult(index++);
+            return GetMascotasAsync();
         }
 
-        public async Task<List<Mascota>> GetMascotasDuenio(int duenio)
+        public async Task<List<Mascota>> GetMascotasDuenio(string duenio)
         {
             return this.Mascotas.Where(x => x.DuenioId == duenio).ToList();
         }

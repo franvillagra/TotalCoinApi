@@ -10,8 +10,8 @@ namespace TotalCoinApi.Services
         {
             Duenios = new List<Duenio>()
             {
-                new Duenio(1, "Francisco Villagra"),
-                 new Duenio(2, "Joaquin Dominguez")
+                new Duenio("1", "Francisco Villagra"),
+                 new Duenio("2", "Joaquin Dominguez")
              };
 
         }

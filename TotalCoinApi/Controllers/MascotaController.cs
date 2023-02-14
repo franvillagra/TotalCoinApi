@@ -27,7 +27,7 @@ namespace TotalCoinApi.Controllers
             return Ok(mascotas);
         }
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetMascotasDuenio([FromRoute]int id)
+        public async Task<IActionResult> GetMascotasDuenio([FromRoute]string id)
         {
             var mascotas = await _mascotaService.GetMascotasDuenio(id);
 

@@ -3,11 +3,11 @@
     public class MascotaDTO
     {
         public string Name { get; set; }
-        public bool EsPerro { get; set; }
-        public double Peso { get; set; }
-        public int Edad { get; set; }
-        public bool Castrado { get; set; }
-        public int Duenio { get; set; }
+        public string EsPerro { get; set; }
+        public string Peso { get; set; }
+        public string Edad { get; set; }
+        public string Castrado { get; set; }
+        public string Duenio { get; set; }
 
     }
 }

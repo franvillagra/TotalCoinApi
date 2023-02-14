@@ -18,19 +18,24 @@ namespace TotalCoinApi.Services
 
         }
 
+        public Task<List<Usuario>> GetUsuarios()
+        {
+            return Task.FromResult(Usuarios.ToList());
+        }
 
         public Task<Usuario> Login(UsuarioDTO usuario)
         {
             return Task.FromResult(Usuarios.Where(user => user.User == usuario.User && user.Pass == usuario.Pass).FirstOrDefault());
         }
 
-        public Task<bool> Registrar(UsuarioDTO usuario)
+        public Task<List<Usuario>> Registrar(UsuarioDTO usuario)
         {
+            
             var index = Usuarios.Max(p => p.Id);
             if (Usuarios.Exists(x => x.User == usuario.User))
-                return Task.FromResult(false); ;
+                return Task.FromResult(new List<Usuario>()); ;
             Usuarios.Add(new Usuario(index++, usuario.User,usuario.Nombre,usuario.Pass, false));
-            return Task.FromResult(true);
+            return Task.FromResult(this.Usuarios.ToList());
         }
     }
 }

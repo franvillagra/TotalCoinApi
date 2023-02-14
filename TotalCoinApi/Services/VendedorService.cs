@@ -19,11 +19,12 @@ namespace TotalCoinApi.Services
         {
             return this.Vendedores.ToList();
         }
-        public Task<int> CrearVendedor(VendedorDTO vendedor)
+        public Task<List<Vendedor>> CrearVendedor(VendedorDTO vendedor)
         {
             var index = Vendedores.Max(p => p.Id);
             Vendedores.Add(new Vendedor(index++, vendedor.Name));
-            return Task.FromResult(index++);
+
+            return GetVendedoresAsync();
         }
     }
 }

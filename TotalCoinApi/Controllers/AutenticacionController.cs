@@ -31,7 +31,13 @@ namespace TotalCoinApi.Controllers
 
             return Ok(response);
         }
+        [HttpGet]
+        public async Task<IActionResult> GetUsers()
+        {
+            var response = await _autenticacionService.GetUsuarios();
 
+            return Ok(response);
+        }
 
 
     }
